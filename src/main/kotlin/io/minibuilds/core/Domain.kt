@@ -1,6 +1,8 @@
 package io.minibuilds.core
 
+import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
+import java.time.LocalDateTime
 
 @Serializable
 data class Place(
@@ -21,3 +23,11 @@ enum class PlaceType {
     ENGLISH_HERITAGE,
     OTHER
 }
+
+@Serializable
+data class Visit(
+    val id: Int,
+    val placeId: Int,
+    @Contextual
+    val visitDateTime: LocalDateTime
+)

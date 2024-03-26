@@ -7,7 +7,7 @@ val mockkVersion: String by project
 plugins {
     kotlin("jvm") version "1.9.23"
     id("io.ktor.plugin") version "2.3.9"
-    kotlin("plugin.serialization") version "1.9.23"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.23"
 }
 
 group = "io.minibuilds"
@@ -31,6 +31,8 @@ dependencies {
     implementation("io.ktor:ktor-server-config-yaml:$ktorVersion")
     implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+    implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+//    runtimeOnly("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
 
     testImplementation("io.ktor:ktor-server-tests-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")

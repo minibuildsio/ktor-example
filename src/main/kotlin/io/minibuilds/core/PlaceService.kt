@@ -11,4 +11,7 @@ class PlaceService {
         places.filter { place ->
             name?.let { it in place.name.lowercase() } ?: true
         }
+
+    fun getPlace(id: Int): Place? =
+        places.firstOrNull { it.id == id }
 }

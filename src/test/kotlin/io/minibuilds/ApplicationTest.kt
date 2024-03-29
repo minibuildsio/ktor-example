@@ -40,6 +40,14 @@ class ApplicationTest {
     }
 
     @Test
+    fun `get place returns place from the places service`() = testApplication {
+        client.get("/places/1").apply {
+            assertEquals(HttpStatusCode.OK, status)
+            assertEquals(DEFAULT_PLACES[0], Json.decodeFromString(bodyAsText()))
+        }
+    }
+
+    @Test
     fun `post request to visits creates a visit`() = testApplication {
         val client = createClient {
             install(ContentNegotiation) {
